@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jnlp spec="1.0+" codebase="https://scorpion88.github.io/" 
+	href="timeslottracker.jnlp"
+>
+
+<information>
+  <title>Time Slot Tracker</title>
+  <vendor>Sourceforge.net</vendor>
+  <homepage href="." />
+  <description>Simple and useful time tracker. Collects tasks and works (timeslots) in hierarchical tree. Also has: reports (based on xslt templates), JIRA (R) support, localization (7 langs), xml data format. Runs on Windows / Mac / Debian / Linux and via JNLP.</description>
+</information>
+
+<offline-allowed/>
+
+<security>
+  <all-permissions/>
+</security>
+
+<resources>
+  <j2se version="1.8+" href="http://java.sun.com/products/autodl/j2se" />
+  <jar href="TimeSlotTracker.jar" main="true" />
+</resources>
+
+<application-desc main-class="net.sf.timeslottracker.Starter" />
+
+<update check="background"/>
+
+</jnlp>
