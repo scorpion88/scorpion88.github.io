@@ -78,3 +78,13 @@ If for some reason, the ticket you want to add is not found by your filter, it i
 Select the task under which you will want to add the Jira ticket (in my case, I select "Jira" by left-clicking on it) then press "Insert" (you can also find it by right-clicking on "Jira"). Enter a name for your Jira ticket. Also, add an attribute called "ISSUE-KEY" and specify the Jira ticket key:
 
 ![Jira ticket manually](jira-ticket.png)
+
+# About the Jira integration
+
+Please note a few things about the Jira integration.
+
+If you go through the _normal_ UI flow of pressing `Play` and `Stop` to start & stop a timeslot for a task that resides in Jira, the time reported in Jira will work as expected. More specifically, when you press `Play`, a timeslot is created with the start time set; at this point, nothing is done in Jira. When you press `Stop`, the stop time is set on the timeslot and a new Jira worklog is created.
+
+However, if you edit that existing timeslot to adjust the start or stop time, these changes won't be reflected in Jira as TimeSlotTracker cannot / will not edit an existing Jira worklog. Likewise, if you delete a timeslot, the corresponding Jira worklog will not be deleted.
+
+Knowing all of the above, here is a word about timeslots that get automatically created when idle is detected. In that case, TimeSlotTracker presents you with a dialog that creates a new timeslot (that is the default behavior; it is possible that you do not see this dialog if you configured it that way). If the start time is incorrect, you can fix it now. If you do not want to start the timer, you can press "Cancel" and an empty timeslot will be created (i.e. the timeslot will have no start & stop time); you can then press the `Stop` button and this will delete the empty timeslot. Alternately, you can double click that empty time slot and edit the start time; again, nothing gets created at this point. It's only when the stop time gets set (either with the `Stop` button or by editing the timeslot) that a Jira worklog gets created, at which point further modifications of the timeslot must be manually reflected in Jira.
